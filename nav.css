@@ -19,6 +19,71 @@
   top: 0;
 }
 
+/* Social Media Icons - Centered between sections */
+.nav-socials {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.socials__item {
+  position: relative;
+}
+
+.socials__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  text-decoration: none;
+  position: relative;
+  transition: transform 0.3s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.socials__link:hover {
+  transform: scale(1.1);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: #888;
+  transition: color 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.socials__link:hover .icon {
+  color: crimson;
+}
+
+.socials__border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.socials__link:hover .socials__border {
+  opacity: 1;
+}
+
 .nav-left ul {
   list-style: none;
 }
@@ -308,4 +373,61 @@
 .hover-underline:hover::after,
 .hover-underline:hover::before {
   transform: scaleX(1);
+}
+
+/* Social Media Icons - Matching provided format */
+.socials {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.socials__item {
+  position: relative;
+}
+
+.socials__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  text-decoration: none;
+  position: relative;
+  transition: transform 0.3s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.socials__link:hover {
+  transform: scale(1.1);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: #888;
+  transition: fill 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.socials__link:hover .icon {
+  fill: crimson;
+}
+
+.socials__border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.socials__link:hover .socials__border {
+  opacity: 1;
 }
