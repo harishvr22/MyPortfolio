@@ -5,6 +5,7 @@ import About from './components/About';
 import TechStack from './components/TechStack';
 import Projects from './components/Projects';
 import Stats from './components/Stats';
+import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -19,6 +20,7 @@ function App() {
         <TechStack />
         <Projects />
         <Stats />
+        <Achievements />
         <Contact />
       </main>
       <Footer />

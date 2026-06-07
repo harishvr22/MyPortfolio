@@ -70,7 +70,7 @@ export default function Projects() {
 
         <div className="projects-list">
           {projectsData.map((project, index) => (
-            <article 
+            <article
               key={index}
               ref={(el) => (cardRefs.current[index] = el)}
               data-index={index}
