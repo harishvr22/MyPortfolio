@@ -9,15 +9,17 @@ export default function About() {
   const [bioVisible, setBioVisible] = useState(false);
   const [portraitVisible, setPortraitVisible] = useState(false);
 
-  const text = "We Turn Data Into Decisions. I design intelligent neural networks and program physical microcontrollers to create systems that act independently and connect seamlessly.";
+  const text = "We Transform Data Into Intelligent Solutions. I build machine learning models and develop AI-powered applications that turn complex data into meaningful insights.";
   const words = text.split(/\s+/);
 
   useEffect(() => {
+    setWordsVisible([]);
+    const wordsArray = text.split(/\s+/);
     const wordObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            words.forEach((_, index) => {
+            wordsArray.forEach((_, index) => {
               setTimeout(() => {
                 setWordsVisible((prev) => {
                   const next = [...prev];
@@ -53,7 +55,7 @@ export default function About() {
       wordObserver.disconnect();
       genericObserver.disconnect();
     };
-  }, []);
+  }, [text]);
 
   return (
     <section className="intro-section" id="about">
@@ -84,10 +86,10 @@ export default function About() {
           
           <div ref={bioRef} className={`bio-detail-paragraph reveal-item ${bioVisible ? 'visible' : ''}`}>
             <p>
-              Currently pursuing Computer Science Engineering with a specialization in Artificial Intelligence and Machine Learning at <a href="https://kit.ac.in" target="_blank" rel="noopener noreferrer" className="text-link">KIT</a>. I focus on training convolutional backbones in PyTorch, developing offline-capable speech interfaces on ESP32 boards, and structuring metrics dashboards using Power BI.
+              My focus is on creating efficient, scalable systems that solve real-world problems through intelligent decision-making. Currently pursuing Computer Science Engineering with a specialization in Artificial Intelligence and Machine Learning at <a href="https://kitcbe.com/" target="_blank" rel="noopener noreferrer" className="text-link">KIT</a>. I work with Python, PyTorch, Computer Vision, Deep Learning, and Full-Stack Development while continuously exploring emerging AI technologies.
             </p>
             <p className="location-stamp">
-              Based in Coimbatore, Tamil Nadu, India — open to worldwide remote collaborations.
+              Based in Coimbatore, Tamil Nadu, India — open to internships, collaborations, and remote opportunities.
             </p>
           </div>
         </div>
