@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
+const text = "We Transform Data Into Intelligent Solutions. I build machine learning models and develop AI-powered applications that turn complex data into meaningful insights.";
+const words = text.split(/\s+/);
+
 export default function About() {
   const paragraphRef = useRef(null);
   const bioRef = useRef(null);
@@ -9,17 +12,12 @@ export default function About() {
   const [bioVisible, setBioVisible] = useState(false);
   const [portraitVisible, setPortraitVisible] = useState(false);
 
-  const text = "We Transform Data Into Intelligent Solutions. I build machine learning models and develop AI-powered applications that turn complex data into meaningful insights.";
-  const words = text.split(/\s+/);
-
   useEffect(() => {
-    setWordsVisible([]);
-    const wordsArray = text.split(/\s+/);
     const wordObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            wordsArray.forEach((_, index) => {
+            words.forEach((_, index) => {
               setTimeout(() => {
                 setWordsVisible((prev) => {
                   const next = [...prev];
@@ -55,7 +53,7 @@ export default function About() {
       wordObserver.disconnect();
       genericObserver.disconnect();
     };
-  }, [text]);
+  }, []);
 
   return (
     <section className="intro-section" id="about">

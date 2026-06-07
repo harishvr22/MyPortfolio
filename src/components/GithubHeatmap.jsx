@@ -1,5 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 
+const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 export default function GithubHeatmap({ username }) {
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = useState(currentYear);
@@ -90,8 +92,10 @@ export default function GithubHeatmap({ username }) {
 
   useEffect(() => {
     if (!username) return;
-    setLoading(true);
-    setError(false);
+    Promise.resolve().then(() => {
+      setLoading(true);
+      setError(false);
+    });
 
     let url = `https://github-contributions-api.deno.dev/${username}.json`;
     if (selectedYear !== currentYear) {
@@ -145,7 +149,7 @@ export default function GithubHeatmap({ username }) {
     }
   };
 
-  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  // monthNames defined at module scope
 
   const monthLabels = useMemo(() => {
     if (!activeData || !activeData.contributions) return [];
